@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "name": "Aang",
+      "image": "https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png"
+    },
+    {
+      "id": 2,
+      "name": "Katara",
+      "image": "http://womenwriteaboutcomics.com/wp-content/uploads/2014/07/atla-katara.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Zuko",
+      "image": "http://images5.fanpop.com/image/photos/28300000/zuko-avatar-the-last-airbender-the-movie-28370702-640-480.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Saka",
+      "image": "http://cdn.pastemagazine.com/www/articles/on%20cactus%20juuice.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Azula",
+      "image": "http://www.rotoscopers.com/wp-content/uploads/2013/09/owDj.png"
+    },
+    {
+      "id": 6,
+      "name": "Mai",
+      "image": "https://www.geek.com/wp-content/uploads/2016/11/mai-1024x694.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Ty Lee",
+      "image": "http://images4.fanpop.com/image/photos/24100000/Ty-Lee-avatar-the-last-airbender-24171638-572-471.png"
+    },
+    {
+      "id": 8,
+      "name": "Korra",
+      "image": "http://assets2.ignimgs.com/2014/07/24/legend-of-korra-blogrolljpg-0d1eb6_1280w.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Suki",
+      "image": "http://images4.fanpop.com/image/photos/24100000/Suki-avatar-the-last-airbender-24171618-598-467.png"
+    },
+    {
+      "id": 10,
+      "name": "Iroh",
+      "image": "http://fc01.deviantart.net/fs71/i/2010/084/f/0/iroh_the_dragon_of_the_west_by_gilbert86II.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Asami",
+      "image": "http://images3.nick.com/nick-assets/shows/images/korra/flipbooks/asami-is-awesome/asami-is-awesome-1.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Bolin",
+      "image": "http://fc05.deviantart.net/fs71/i/2012/189/f/d/the_legend_of_korra__bolin_portrait_by_dejakob-d56f444.png"
+    }
+  ]
+  
