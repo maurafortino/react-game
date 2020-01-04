@@ -6,68 +6,37 @@ import Description from '../Description';
 import Row from '../Row';
 import Col from '../Col';
 import PicturesCard from '../PicturesCard';
-import Score from '../Score';
+// import Score from '../Score';
 import pictures from '../../../src/pictures.json';
 
 class Container extends React.Component {
   state = {
     score: 0,
-    topScore: 0,
-    characters: pictures,
+    highScore: 0,
+    pictures,
     guessedCharacters: [],
     message: ""
   };
 
-  handleOnClick = event => {
-    const name = event.target.attributes.getNamedItem("name").value;
-    this.randomizeCharacters()
-    this.checkGuess(name, this.handleTopScore)
+  handleOnClick = () => {
+    const shuffledArray = this.randomizeArray(pictures);
+    this.setState({cards: shuffledArray});
   }
 
-  randomizeCharacters = () => {
-    this.setState(this.state.characters = this.randomizeArray(this.state.characters))
-  }
-
-  randomizeArray = (a) => {
-    let b, c, d;
-    for (d = a.length - 1; d > 0; d--) {
-      b = Math.floor(Math.random() * (d + 1));
-      c = a[d];
-      a[d] = a[b];
-      a[b] = c;
+  randomizeArray = (picturesArr) => {
+    let currentIndex = picturesArr.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+  
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      temporaryValue = picturesArr[currentIndex];
+      picturesArr[currentIndex] = picturesArr[randomIndex];
+      picturesArr[randomIndex] = temporaryValue;
     }
-    return a;
-  }
-
-  checkGuess = (name, cb) => {
-    const newState = { ...this.state };
-    if (newState.guessedCharacters.includes(name)) {
-      newState.message = "You already guessed this character 😕"
-      newState.guessedCharacters = []
-      this.setState(this.state = newState)
-    } else {
-      newState.guessedCharacters.push(name)
-      newState.message = `Alright! Keep it going!`
-      this.setState(this.state = newState)
-    }
-    cb(newState, this.alertWinner)
-  }
-
-  handleTopScore = (newState, cb) => {
-    if (newState.guessedCharacters.length > newState.topScore) {
-      newState.topScore++
-      this.setState(this.state = newState)
-    }
-    cb(newState)
-  }
-
-  handleWinner = (newState) => {
-    if (newState.guessedCharacters.length === 12) {
-      newState.message = "You win! Way to go!";
-      newState.guessedCharacters = [];
-      this.setState(this.state = newState)
-    }
-  }
+  
+    return picturesArr;
+};
 
   render() {
     return (
@@ -79,17 +48,19 @@ class Container extends React.Component {
           {/* <TopScore type="TopScore" score={this.state.topScore}> Top Score: </TopScore> */}
         </Jumbotron>
         <Row>
+          <Col
+          key={pictures.id}>
           {
-            this.state.characters.map(character => (
-              <Col>
+            this.state.pictures.map(character => (
                 <PicturesCard
                   key={character.id}
                   name={character.name}
                   image={character.image}
+                  handleOnClick={this.handleOnClick}
                 />
-              </Col>
             ))
           }
+          </Col>
         </Row>
       </div>
     );
