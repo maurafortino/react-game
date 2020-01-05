@@ -35,9 +35,17 @@ class Container extends React.Component {
         message: "Character already guessed. The game is over, but you can still try again." 
       });
     };
-    if (this.state.score > this.state.topScore) {
-      this.setState({ topScore: this.state.score });
-    }
+
+    if (this.state.score > this.state.highScore) {
+      this.setState({ highScore: this.state.score });
+    };
+
+    if(this.state.score === pictures.length -1){
+      this.setState({
+        message: "Congratulations! You won!!",
+        highScore: pictures.length
+      })
+    };
   };
 
   randomizeArray = (picturesArr) => {
@@ -61,7 +69,7 @@ class Container extends React.Component {
         <Jumbotron>
           <Title>Click an image</Title>
           <Description>Once you click an image, the images will shuffle. Click on all the images without clicking on the same one twice. For each unique image you click, you get a point. If you click on the same image twice, you lose.</Description>
-          <Score score={this.state.guessedCharacters.length} highScore={this.state.highScore} />
+          <Score score={this.state.guessedCharacters.length} highScore={this.state.highScore}/>
           <Message message={this.state.message} />
 
         </Jumbotron>
