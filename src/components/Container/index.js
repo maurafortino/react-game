@@ -18,10 +18,20 @@ class Container extends React.Component {
     message: ""
   };
 
-  handleOnClick = () => {
+  handleOnClick = name => {
     const shuffledArray = this.randomizeArray(pictures);
     this.setState({cards: shuffledArray});
-  }
+    if (this.state.guessedCharacters.includes(name)) {
+      this.setState({score: 0, guessedCharacters: [], message: "Character already guessed. The game is over, but you can still try again."});
+    }
+    else {
+      this.setState({
+        guessedCharacters: this.state.guessedCharacters.concat([name]),
+        score: this.state.score + 1,
+        message: "Alright keep it going!"
+      });
+    };
+  };
 
   randomizeArray = (picturesArr) => {
     let currentIndex = picturesArr.length, temporaryValue, randomIndex;
@@ -53,7 +63,7 @@ class Container extends React.Component {
           {
             this.state.pictures.map(character => (
                 <PicturesCard
-                  key={character.id}
+                  key={character.name}
                   name={character.name}
                   image={character.image}
                   handleOnClick={this.handleOnClick}

@@ -5,7 +5,7 @@ function PicturesCard({name, image, handleOnClick}) {
   return (
     <div className='card'>
       <div className='img-container'>
-        <img alt={name} src={image} onClick={handleOnClick} />
+        <img alt={name} name={name} src={image} onClick={handleOnClick} />
       </div>
     </div>
   );
