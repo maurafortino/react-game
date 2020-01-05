@@ -1,11 +1,11 @@
 import React from 'react';
 import './style.css';
 
-function PicturesCard({name, image, handleOnClick}) {
+function PicturesCard(props) {
   return (
     <div className='card'>
       <div className='img-container'>
-        <img alt={name} name={name} src={image} onClick={handleOnClick} />
+        <img alt={props.name} src={props.image} onClick={() => props.handleOnClick(props.name)} />
       </div>
     </div>
   );
